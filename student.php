@@ -30,9 +30,20 @@
 		if (isset($_POST["name"])){
 			$name = $_POST["name"];
 			if (nameExists($name)) {
-				echo "$name";
+				echo "<h1>$name</h1>";
 	?>
-	<!--HTML goes here-->
+	<!--Add a coverage record-->
+	<h3>Add a Coverage Record</h3>
+	<form method='post'>
+		<textarea rows='4' cols='50'>A short description of the coverage of <?php echo $name; ?></textarea> <br>
+		Date: <input type='date' id='date' name='date'> <br>
+		<input type='submit'>
+		<input type='reset'>
+	</form>
+	<?php
+		//php to handle form
+	?>
+	<!--More HTML-->
 	<?php
 			}
 			else {
