@@ -31,24 +31,33 @@
 			$name = $_POST["name"];
 			if (nameExists($name)) {
 				echo "<h1>$name</h1>";
+			}
+		}
+		else {
+				echo "$name not found. Please go <a href='index.php'>back</a>.";
+		}
+		if (isset($_POST["name"]) or isset($_POST['submitCheck'])) {
 	?>
 	<!--Add a coverage record-->
 	<h3>Add a Coverage Record</h3>
-	<form method='post'>
-		<textarea rows='4' cols='50'>A short description of the coverage of <?php echo $name; ?></textarea> <br>
-		Date: <input type='date' id='date' name='date'> <br>
+	<form name='addCoverage' method='post' action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+		<textarea rows='4' cols='50' name='description' id='description'>A short description of the coverage of <?php echo $name; ?></textarea> <br>
+		Date: <input type='date' id='date' name='date' required> <br>
+		<input type="hidden" name="name" value="<?php echo $name ?>"/> 
+		<input type="hidden" name="submitCheck" value="1"/> 
 		<input type='submit'>
 		<input type='reset'>
 	</form>
 	<?php
-		//php to handle form
+			if (isset($_POST['submitCheck'])) {
+				echo "meow";
+				$date = $_POST['date'];
+				//date('Y-m-d', $date);
+				echo $date;
+			}
 	?>
 	<!--More HTML-->
 	<?php
-			}
-			else {
-				echo "$name not found. Please go <a href='index.php'>back</a>.";
-			}
 		}
 	?>
 </body>
