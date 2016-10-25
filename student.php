@@ -136,7 +136,7 @@
 			<div id="coverageRec<?php echo $numID ?>"> <!--id is diff for each coverage rec-->
 				<?php echo $index+1 . ".";?> <b>Description:</b> <?php echo $desc ?> <b>Date:</b> <?php echo explode(" ", $dt)[0] //only before space, this takes out time of day ?> 
 				<form style='display: inline;' name='deleteCoverage' method='post' action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-					<input type='submit' name='delete' value='Delete' />
+					<!--<input type='submit' name='delete' value='Delete' />-->
 					<input type='hidden' name='numID' value="<?php echo $numID ?>" />
 					<input type='hidden' name='submitCheckDelete' value="1" /> 
 					<input type="hidden" name="name" value="<?php echo $name ?>"/> 
@@ -152,6 +152,7 @@
 	?>
 	
 	<!--More HTML, possibly-->
+	<a href='index.php'>Back</a>
 	<?php
 		}
 	?>
